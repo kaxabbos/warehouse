@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Архив</title>
+</head>
+
+<head th:insert="blocks\head :: head"></head>
+
+<body>
+
+<nav th:insert="blocks/nav :: nav"></nav>
+
+<section class="py-5">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center">Архив</h1>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div th:each="cart : ${carts}" class="col-6">
+                <div class="row">
+                    <div class="col-auto text-center">
+                        <img th:src="'/img/' + ${cart.product.img}" style="width: 200px;border-radius: 25px;">
+                    </div>
+                    <div class="col-auto">
+                        <div>
+                            <span>Название:&nbsp;</span>
+                            <span th:text="${cart.product.name}"></span>
+                        </div>
+                        <div>
+                            <span>Статус:&nbsp;</span>
+                            <span th:text="${cart.status.name}"></span>
+                        </div>
+                        <div>
+                            <span>Стоимость:&nbsp;</span>
+                            <span th:text="${cart.quantity * cart.product.price}"></span>
+                        </div>
+                        <div>
+                            <span>Выбранное количество:&nbsp;</span>
+                            <span th:text="${cart.quantity}"></span>
+                        </div>
+                        <div>
+                            <span>Категория:&nbsp;</span>
+                            <span th:text="${cart.product.category.getName()}"></span>
+                        </div>
+                        <div>
+                            <span>Срок годности:&nbsp;</span>
+                            <span th:text="${cart.product.keep}"></span>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/bold-and-bright.js"></script>
+
+</body>
+
+</html>

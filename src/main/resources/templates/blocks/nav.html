@@ -1,0 +1,29 @@
+<div th:fragment="nav">
+    <nav style="font-size: 1.5em; background: #4bebff" class="navbar navbar-light navbar-expand-md sticky-top navbar-shrink py-3">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="/">
+                <span>Warehouse</span>
+            </a>
+            <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1">
+                <span class="visually-hidden">Toggle navigation</span>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav mx-auto">
+                    <li th:if="${user.role.name() == 'ADMIN' and inStock > 0}" class="nav-item"><a class="nav-link" href="/stats">Аналитическая панель</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="/product/all">Учет складских товаров</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/warehouse">Склады</a></li>
+                    <li th:if="${user.role.name() == 'SELLER'}" class="nav-item"><a class="nav-link" href="/apps">Заявки</a></li>
+                    <li th:if="${user.role.name() == 'BUYER'}" class="nav-item"><a class="nav-link" href="/archive">Архив</a></li>
+                    <li th:if="${user.role.name() == 'BUYER'}" class="nav-item"><a
+                            class="nav-link" href="/cart">Заявки на склад</a></li>
+                    <li th:if="${user.role.name() == 'ADMIN'}" class="nav-item"><a class="nav-link" href="/user/all">Пользователи</a></li>
+                    <li th:if="${user.role.name() == 'SELLER'}" class="nav-item"><a class="nav-link" href="/product/add">Загрузить товар</a></li>
+                    <li th:if="${user.role.name() == 'SELLER'}" class="nav-item"><a class="nav-link" href="/warehouse/add">Загрузить склад</a></li>
+                    <li th:if="${user.role.name() != 'NOT'}" class="nav-item"><a class="nav-link" href="/logout">Выход</a>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>

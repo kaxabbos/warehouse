@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Регистрация</title>
+</head>
+
+<head th:insert="blocks\head :: head"></head>
+
+<body>
+<section class="py-5">
+    <div class="container py-5">
+        <div th:if="${message}" class="row mb-4 mb-lg-5">
+            <div class="alert col-md-8 col-xl-6 text-center mx-auto alert-warning" role="alert">
+                <strong th:text="${message}"></strong>
+            </div>
+        </div>
+        <div class="row mb-4 mb-lg-5">
+            <div class="col-md-8 col-xl-6 text-center mx-auto">
+                <h2 class="fw-bold">Регистрация</h2>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6 col-xl-4">
+                <div class="card">
+                    <div class="card-body text-center d-flex flex-column align-items-center">
+                        <form action="/reg" method="post">
+                            <div class="mb-3">
+                                <input class="form-control" type="email" name="username" placeholder="Электронная почта"
+                                       required>
+                            </div>
+                            <div class="mb-3">
+                                <input class="form-control" type="text" name="fio" placeholder="ФИО" required></div>
+                            <div class="mb-3">
+                                <input class="form-control" type="password" name="password" placeholder="Пароль"
+                                       required></div>
+                            <div class="mb-3">
+                                <input class="form-control" type="password" name="password_repeat"
+                                       placeholder="Повторите пароль" required>
+                            </div>
+                            <div class="mb-3">
+                                <button class="btn btn-primary shadow d-block w-100" type="submit">Зарегистрироваться
+                                </button>
+                            </div>
+                        </form>
+                        <p class="text-muted"><a href="/login">Вход</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/bold-and-bright.js"></script>
+
+</body>
+
+</html>
